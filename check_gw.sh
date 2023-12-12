@@ -2,7 +2,7 @@
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 
-gatewaympls=$(psql -U postgres brcconfig -A -t -c "SELECT obj_addr.data->>'obj_addr-ip_mask' AS obj_addr_ip_mask FROM box_net_device JOIN obj_addr ON box_net_device.gw_addr_id = obj_addr.id WHERE box_net_device.name = 'tun1';" | cut -d "/" -f 1 | cut -d '"' -f 2)
+gatewaympls=$(psql -U postgres brcconfig -A -t -c "SELECT (((obj_addr.data->'obj_addr-ip_mask')->>0)::inet) AS obj_addr_ip_mask FROM box_net_device JOIN obj_addr ON box_net_device.gw_addr_id = obj_addr.id WHERE box_net_device.name = 'tun1';")
 
 while : ;
 do
