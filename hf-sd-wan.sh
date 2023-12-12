@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Baixa o arquivo check_gw do GitHub e salva em /root
-wget -O /root/check_gw.sh https://raw.githubusercontent.com/seu-usuario/seu-repositorio/master/check_gw.sh
+wget -O /root/check_gw.sh https://raw.githubusercontent.com/icaromrocha/projects/main/check_gw.sh
 
 # Concede permissões de execução ao arquivo
 chmod +x /root/check_gw.sh
