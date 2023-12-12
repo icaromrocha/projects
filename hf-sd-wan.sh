@@ -29,6 +29,8 @@ fi
 if wget -O /opt/omne/bin/sdwan.new https://raw.githubusercontent.com/icaromrocha/projects/main/sdwan; then
     echo "Concluído."
     # Etapa 5
+    echo "Parando o serviço de sd-wan"
+    systemctl stop sd-wan.service
     echo "Passo 5: Renomeando /opt/omne/bin/sdwan para sdwan.old e depois o sdwan.new para sdwan..."
     mv /opt/omne/bin/sdwan /opt/omne/bin/sdwan.old
     mv /opt/omne/bin/sdwan.new /opt/omne/bin/sdwan
