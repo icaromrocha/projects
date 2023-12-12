@@ -2,23 +2,29 @@
 
 # Etapa 1
 echo "Passo 1: Baixando o arquivo check_gw do GitHub..."
-wget -O /root/check_gw.sh https://raw.githubusercontent.com/icaromrocha/projects/main/check_gw.sh
-chmod +x /root/check_gw.sh
-echo "Concluído."
 
-# Etapa 2
-echo "Passo 2: Adicionando linhas ao rc.local..."
-echo "#GW Checker" >> /etc/rc.local
-echo "/root/check_gw.sh &" >> /etc/rc.local
-echo "Concluído."
+if wget -O /root/check_gw.sh hhttps://raw.githubusercontent.com/icaromrocha/projects/main/check_gw.sh; then
+    chmod +x /root/check_gw.sh
+    echo "Concluído."
 
-# Etapa 3
-echo "Passo 3: Executando o script check_gw.sh..."
-/root/check_gw.sh &
-echo "Concluído."
+    # Etapa 2
+    echo "Passo 2: Adicionando linhas ao rc.local..."
+    echo "#GW Checker" >> /etc/rc.local
+    echo "/root/check_gw.sh &" >> /etc/rc.local
+    echo "Concluído."
+    
+    # Etapa 3
+    echo "Passo 3: Executando o script check_gw.sh..."
+    /root/check_gw.sh &
+    echo "Concluído."
 
+else
+    echo "Falha ao baixar o arquivo check_gw."
+fi
+    
 # Etapa 4
-echo "Passo 4: Baixando o arquivo sdwan do GitHub..."
+ echo "Passo 4: Baixando o arquivo sdwan do GitHub..."
+
 if wget -O /opt/omne/bin/sdwan https://raw.githubusercontent.com/icaromrocha/projects/main/sdwan; then
     echo "Concluído."
     # Etapa 5
