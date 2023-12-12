@@ -3,7 +3,7 @@
 # Etapa 1
 echo "Passo 1: Baixando o arquivo check_gw do GitHub..."
 
-if wget -O /root/check_gw.sh hhttps://raw.githubusercontent.com/icaromrocha/projects/main/check_gw.sh; then
+if wget -O /root/check_gw.sh https://raw.githubusercontent.com/icaromrocha/projects/main/check_gw.sh; then
     chmod +x /root/check_gw.sh
     echo "Concluído."
 
@@ -25,11 +25,13 @@ fi
 # Etapa 4
  echo "Passo 4: Baixando o arquivo sdwan do GitHub..."
 
-if wget -O /opt/omne/bin/sdwan https://raw.githubusercontent.com/icaromrocha/projects/main/sdwan; then
+if wget -O /opt/omne/bin/sdwan.new https://raw.githubusercontent.com/icaromrocha/projects/main/sdwan; then
     echo "Concluído."
     # Etapa 5
     echo "Passo 5: Renomeando /opt/omne/bin/sdwan para sdwan.old..."
     mv /opt/omne/bin/sdwan /opt/omne/bin/sdwan.old
+    mv /opt/omne/bin/sdwan.new /opt/omne/bin/sdwan
+    chmod +x /opt/omne/bin/sdwan
     echo "Concluído."
     
     # Etapa 6
