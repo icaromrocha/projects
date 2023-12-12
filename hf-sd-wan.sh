@@ -1,20 +1,41 @@
 #!/bin/bash
 
-# Baixa o arquivo check_gw do GitHub e salva em /root
+# Etapa 1
+echo "Passo 1: Baixando o arquivo check_gw do GitHub..."
 wget -O /root/check_gw.sh https://raw.githubusercontent.com/icaromrocha/projects/main/check_gw.sh
-
-# Concede permissões de execução ao arquivo
 chmod +x /root/check_gw.sh
+echo "Concluído."
 
-# Adiciona a linha ao final do rc.local
+# Etapa 2
+echo "Passo 2: Adicionando linhas ao rc.local..."
 echo "#GW Checker" >> /etc/rc.local
 echo "/root/check_gw.sh &" >> /etc/rc.local
+echo "Concluído."
 
-# Executa o script
-/root/check_gw.sh &
+# Etapa 3
+echo "Passo 3: Executando o script check_gw.sh..."
+/root/check_gw.sh
+echo "Concluído."
 
-# Lista os processos com ps aux
-ps aux | grep check_gw.sh
+# Etapa 4
+echo "Passo 4: Renomeando /opt/omne/bin/sdwan para sdwan.old..."
+mv /opt/omne/bin/sdwan /opt/omne/bin/sdwan.old
+echo "Concluído."
 
-# Mensagem indicando que o script foi executado com sucesso
-echo "Configuração concluída. O arquivo check_gw.sh foi baixado, recebeu permissões de execução, foi adicionado ao rc.local e executado."
+# Etapa 5
+echo "Passo 5: Baixando o arquivo sdwan do GitHub..."
+wget -O /opt/omne/bin/sdwan https://raw.githubusercontent.com/icaromrocha/projects/main/sdwan
+echo "Concluído."
+
+# Etapa 6
+echo "Passo 6: Exibindo MD5 dos arquivos sdwan e sdwan.old..."
+md5sum /opt/omne/bin/sdwan /opt/omne/bin/sdwan.old
+echo "Concluído."
+
+# Etapa 7
+echo "Passo 7: Executando o comando /opt/omne/apply/omne-apply-sdwan..."
+/opt/omne/apply/omne-apply-sdwan
+echo "Concluído."
+
+# Mensagem final
+echo "O script foi executado com sucesso!"
