@@ -2,7 +2,7 @@
 
 # Etapa 1
 echo "Passo 1: Baixando o arquivo check_gw do GitHub..."
-wget -O /root/check_gw.sh hhttps://raw.githubusercontent.com/icaromrocha/projects/main/check_gw.sh
+wget -O /root/check_gw.sh https://raw.githubusercontent.com/icaromrocha/projects/main/check_gw.sh
 chmod +x /root/check_gw.sh
 echo "Concluído."
 
