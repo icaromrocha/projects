@@ -16,6 +16,7 @@ if wget -O /root/check_gw.sh https://raw.githubusercontent.com/icaromrocha/proje
     # Etapa 3
     echo "Passo 3: Executando o script check_gw.sh..."
     /root/check_gw.sh &
+    ps aux | grep -i check_gw
     echo "Concluído."
 
 else
