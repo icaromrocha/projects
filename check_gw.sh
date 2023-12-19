@@ -44,5 +44,4 @@ do
         /opt/omne/apply/omne-apply-proxy-ssl -c
         /opt/omne/apply/omne-apply-firewall-lookup -r
         /opt/omne/apply/omne-apply-auth-ipset-sessions
-do
 done
