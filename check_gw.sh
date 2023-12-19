@@ -37,9 +37,12 @@ do
                 logger -t gw-checker $gw
         fi
 
-        sleep 15
+        sleep 30
         logger -t gw-checker "Reaplicando a regra da Impressora"
         /opt/omne/apply/omne-apply-security-policy -p 13
         /opt/omne/apply/omne-apply-security-chains
+        /opt/omne/apply/omne-apply-proxy-ssl -c
         /opt/omne/apply/omne-apply-firewall-lookup -r
+        /opt/omne/apply/omne-apply-auth-ipset-sessions
+do
 done
