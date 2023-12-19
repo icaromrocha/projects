@@ -42,6 +42,5 @@ do
         /opt/omne/apply/omne-apply-security-policy -p 13
         /opt/omne/apply/omne-apply-security-chains
         /opt/omne/apply/omne-apply-proxy-ssl -c
-        /opt/omne/apply/omne-apply-firewall-lookup -r
         /opt/omne/apply/omne-apply-auth-ipset-sessions
 done
